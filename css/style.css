@@ -15,7 +15,7 @@
 
     --clr-light:#fff;
     --clr-dark:#303030;
-    --clr-accent: #16e0bd;
+    --clr-accent: #eb7633;
 
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -139,11 +139,13 @@ header {
 
 .logo {
     max-width: 100px;
+    filter: grayscale()
 }
 
 .nav {
     position: fixed;
     background: var(--clr-dark);
+    opacity: 90%;
     color: var(--clr-light);
     top: 0;
     bottom: 0;
@@ -152,7 +154,7 @@ header {
     z-index: 100;
 
     transform: translateX(100%);
-    transition: transform 250ms cubic-bezier(.5s, 0, .5, 1);
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
 }
 
 .nav__list {
@@ -174,7 +176,7 @@ header {
 }
 
 .nav__link:hover {
-    color: var(--clr-accent)
+    color: var(--clr-accent);
 }
 
 .nav-toggle {
@@ -185,10 +187,15 @@ header {
     position: absolute;
     right: 1em;
     top: 1em;
+    z-index: 1000;
 }
 
 .nav-open .nav {
-    transform: translateX(0)
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle {
+    position: fixed;
 }
 
 .hamburger {
@@ -199,9 +206,9 @@ header {
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-    background: var(--clr-dark);
-    width: 2em;
-    height: 3px;
+    background: var(--clr-accent);
+    width: 3em;
+    height: 4px;
     border-radius: 1em;
     transition: transform 250ms ease-in-out;
 }
@@ -214,8 +221,8 @@ header {
     right: 0;
 }
 
-.hamburger::before { top: 6px; }
-.hamburger::after { bottom: 6px; }
+.hamburger::before { top: 8px; }
+.hamburger::after { bottom: 8px; }
 
 
 /* Intro Section */
@@ -351,11 +358,11 @@ header {
     background-color: var(--clr-dark);
     color: var(--clr-light);
     text-align: center;
-    padding: 2.5em 0;
 
 }
 
 .portfolio {
+    margin-top: 3em;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
